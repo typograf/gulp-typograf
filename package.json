@@ -11,7 +11,9 @@
     "url": "git://github.com/typograf/gulp-typograf.git"
   },
   "keywords": [
-    "gulp",
+    "gulpplugin",
+    "typograph"
+    "typography"
     "typograf"
   ],
   "engineStrict": true,
