@@ -21,7 +21,7 @@ it('should prepare text', function (cb) {
 
 it('should prepare text with disabled rule "common/punctuation/exclamation"', function (cb) {
     var input = '   Hello world!!   ',
-        output = 'Hello world!';
+        output = 'Hello world!!';
 
     var stream = typograf({lang: 'ru', disable: ['common/punctuation/exclamation']});
     stream.on('data', function(data) {
