@@ -1,6 +1,6 @@
 {
   "name": "gulp-typograf",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Prepare texts with typograf using gulp.",
   "author": {
     "name": "Denis Seleznev <hcodes@yandex.ru>"
