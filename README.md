@@ -1,6 +1,6 @@
 [gulp](http://gulpjs.com)-typograf [![Build Status](https://travis-ci.org/typograf/gulp-typograf.png?branch=master)](https://travis-ci.org/typograf/gulp-typograf) [![Dependency Status](https://david-dm.org/typograf/gulp-typograf.png)](https://david-dm.org/typograf/gulp-typograf)
 ==================================
-Prepare texts with typograf for Gulp.
+Prepare texts with Typograf using Gulp.
 
 ## Install
 
