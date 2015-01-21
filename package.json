@@ -1,7 +1,7 @@
 {
   "name": "gulp-typograf",
   "version": "1.0.4",
-  "description": "Prepare texts with typograf using gulp.",
+  "description": "Prepare texts with Typograf using Gulp.",
   "author": {
     "name": "Denis Seleznev <hcodes@yandex.ru>"
   },
@@ -32,7 +32,7 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "typograf": "2.x",
-    "through2": "^0.5.1",
+    "through2": "^0.6.3",
     "gulp-util": "^3.0.1"
   },
   "devDependencies": {
