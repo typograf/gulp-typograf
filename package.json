@@ -20,20 +20,15 @@
   "engines": {
     "node": ">= 0.10"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/typograf/gulp-typograf/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "scripts": {
     "test": "mocha"
   },
   "readmeFilename": "README.md",
   "dependencies": {
-    "typograf": "2.x",
-    "through2": "^0.6.3",
-    "gulp-util": "^3.0.1"
+    "typograf": "4.x",
+    "through2": "^2.0.0",
+    "gulp-util": "^3.0.6"
   },
   "devDependencies": {
      "mocha": "*"

@@ -23,7 +23,7 @@ it('should prepare text with disabled rule "common/punctuation/exclamation"', fu
     var input = '   Hello world!!   ',
         output = 'Hello world!!';
 
-    var stream = typograf({lang: 'ru', disable: ['common/punctuation/exclamation']});
+    var stream = typograf({lang: 'ru', disable: ['ru/punctuation/exclamation']});
     stream.on('data', function(data) {
         assert.equal(data.contents.toString(), output);
         cb();
