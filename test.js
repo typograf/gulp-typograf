@@ -48,3 +48,29 @@ it('should prepare text with enabled rule "ru/money/ruble"', function (cb) {
         contents: new Buffer(input)
     }));
 });
+
+it('should execute own rules', function (cb) {
+    var input = ' :-) ',
+        output = ':—)';
+
+    var stream = typograf({
+        lang: 'ru',
+        rules: [
+            {
+                name: 'common/other/typographicalEmoticon',
+                handler: function(text, settings) {
+                    return text.replace(/:-\)/, ':—)');
+                }
+            }
+        ]
+    });
+    stream.on('data', function(data) {
+        assert.equal(data.contents.toString(), output);
+        cb();
+    });
+
+    stream.write(new gutil.File({
+        contents: new Buffer(input)
+    }));
+});
+
