@@ -6,7 +6,7 @@
 [![Dependency Status](https://img.shields.io/david/typograf/gulp-typograf.svg)](https://david-dm.org/typograf/gulp-typograf) [![devDependency Status](https://img.shields.io/david/dev/typograf/gulp-typograf.svg)](https://david-dm.org/typograf/gulp-typograf#info=devDependencies)
 
 
-Prepare texts with Typograf using Gulp.
+Prepare texts with [Typograf](https://github.com/typograf/typograf) using Gulp.
 
 ## Install
 
@@ -16,23 +16,41 @@ npm install gulp-typograf --save-dev
 
 ## Usage
 ```js
-var typograf = require('gulp-typograf');
+'use strict';
 
-gulp.task('typograf', function () {
-  gulp.src('./html/**/*.html')
+const typograf = require('gulp-typograf');
+
+gulp.task('typograf', function() {
+  gulp.src('./src/*.html')
     .pipe(typograf({lang: 'ru'}))
-    .pipe(gulp.dest('./public/html'));
+    .pipe(gulp.dest('./public/'));
 });
 
-gulp.task('default', ['typograf']);
 ```
 
-## Options
+## With additional options
 ```js
 .pipe(typograf({
-    lang: 'ru',
-    mode: 'digit', // entities as digits
+    lang: 'ru', // "ru" or "en"
+    mode: 'digit', // entities as digits.
     disable: ['ru/optalign/*'], // disable rules
-    enable: ['ru/money/ruble'] // enable rules
+    enable: ['ru/money/ruble'], // enable rules
+    rules: [ // own rules
+        {
+            name: 'common/other/typographicalEmoticon',
+            handler: function(text, settings) {
+                return text.replace(/:-\)/, ':—)');
+        },
+        {
+            name: 'common/other/trimLeft'
+            handler: function(text, settings) {
+                return text.trimLeft();
+            }
+        }
+    ]
 }))
 ```
+
+## Links
+- [Typograf](https://github.com/typograf/typograf)
+- [grunt-typograf](https://github.com/typograf/grunt-typograf)
