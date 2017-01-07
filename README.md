@@ -32,9 +32,9 @@ gulp.task('typograf', function() {
 ```js
 .pipe(typograf({
     lang: 'ru', // "ru" or "en"
-    mode: 'digit', // entities as digits.
-    disable: ['ru/optalign/*'], // disable rules
-    enable: ['ru/money/ruble'], // enable rules
+    htmlEntity: { type: 'digit' }, // Type of HTML entities: 'digit' - &#160;, 'name' - &nbsp;, 'default' - UTF-8.
+    disable: ['ru/optalign/*'], // Disable rules.
+    enable: ['ru/money/ruble'], // Enable rules.
     rules: [ // own rules
         {
             name: 'common/other/typographicalEmoticon',
