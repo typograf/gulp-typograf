@@ -31,11 +31,11 @@ gulp.task('typograf', function() {
 ## With additional options
 ```js
 .pipe(typograf({
-    lang: 'ru', // "ru" or "en"
-    htmlEntity: { type: 'digit' }, // Type of HTML entities: 'digit' - &#160;, 'name' - &nbsp;, 'default' - UTF-8.
-    disable: ['ru/optalign/*'], // Disable rules.
-    enable: ['ru/money/ruble'], // Enable rules.
-    rules: [ // own rules
+    lang: 'ru', // 'ru' or 'en'
+    htmlEntity: { type: 'digit' }, // Type of HTML entities: 'digit' - &#160;, 'name' - &nbsp;, 'default' - UTF-8
+    disable: ['ru/optalign/*'], // Disable rules
+    enable: ['ru/money/ruble'], // Enable rules
+    rules: [ // Own rules
         {
             name: 'common/other/typographicalEmoticon',
             handler: function(text, settings) {
