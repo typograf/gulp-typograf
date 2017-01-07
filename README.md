@@ -22,7 +22,7 @@ const typograf = require('gulp-typograf');
 
 gulp.task('typograf', function() {
   gulp.src('./src/*.html')
-    .pipe(typograf({lang: 'ru'}))
+    .pipe(typograf({ lang: 'ru' }))
     .pipe(gulp.dest('./public/'));
 });
 
