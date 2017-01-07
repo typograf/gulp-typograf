@@ -3,25 +3,32 @@
 const Typograf = require('typograf');
 const through = require('through2');
 const gutil = require('gulp-util');
+const names = [];
+
+function addRules(rules) {
+    Array.isArray(rules) && rules.forEach(function(rule) {
+        if (typeof rule === 'object' && typeof rule.name === 'string' && names.indexOf(rule.name) === -1) {
+            Typograf.rule(rule);
+
+            names.push(rule.name);
+        }
+    });
+}
 
 module.exports = function(opts) {
     opts = opts || {};
 
-    Array.isArray(opts.rules) && opts.rules.forEach(function(rule) {
-        typeof rule === 'object' && Typograf.rule(rule);
-    });
+    addRules(opts.rules);
 
     const typograf = new Typograf(opts);
-    opts.disable && typograf.disable(opts.disable);
-    opts.enable && typograf.enable(opts.enable);
 
     return through.obj(function(file, enc, cb) {
-        if(file.isNull()) {
+        if (file.isNull()) {
             this.push(file);
             return cb();
         }
 
-        if(file.isStream()) {
+        if (file.isStream()) {
             this.emit('error', new gutil.PluginError('gulp-typograf', 'Streaming not supported'));
             return cb();
         }
