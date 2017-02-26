@@ -8,7 +8,7 @@ const names = [];
 function addRules(rules) {
     Array.isArray(rules) && rules.forEach(function(rule) {
         if (typeof rule === 'object' && typeof rule.name === 'string' && names.indexOf(rule.name) === -1) {
-            Typograf.rule(rule);
+            Typograf.addRule(rule);
 
             names.push(rule.name);
         }

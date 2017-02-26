@@ -21,9 +21,9 @@ npm install gulp-typograf --save-dev
 const typograf = require('gulp-typograf');
 
 gulp.task('typograf', function() {
-  gulp.src('./src/*.html')
-    .pipe(typograf({ lang: 'ru' }))
-    .pipe(gulp.dest('./public/'));
+    gulp.src('./src/*.html')
+        .pipe(typograf({ locale: ['ru', 'en-US'] }))
+        .pipe(gulp.dest('./public/'));
 });
 
 ```
@@ -31,10 +31,10 @@ gulp.task('typograf', function() {
 ## With additional options
 ```js
 .pipe(typograf({
-    lang: 'ru', // 'ru' or 'en'
+    locale: ['ru', 'en-US'],
     htmlEntity: { type: 'digit' }, // Type of HTML entities: 'digit' - &#160;, 'name' - &nbsp;, 'default' - UTF-8
-    disable: ['ru/optalign/*'], // Disable rules
-    enable: ['ru/money/ruble'], // Enable rules
+    disableRule: ['ru/optalign/*'],
+    enableRule: ['ru/money/ruble'],
     rules: [ // Own rules
         {
             name: 'common/other/typographicalEmoticon',

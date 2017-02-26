@@ -1,14 +1,14 @@
 'use strict';
 
-var assert = require('assert'),
-    gutil = require('gulp-util'),
-    typograf = require('./');
+const assert = require('assert');
+const gutil = require('gulp-util');
+const typograf = require('./');
 
 it('should prepare text', function (cb) {
-    var input = '   Hello world!!   ',
-        output = 'Hello world!';
+    const input = '   Hello world!!   ';
+    const output = 'Hello world!';
 
-    var stream = typograf({lang: 'ru'});
+    const stream = typograf({locale: ['ru', 'en-US']});
     stream.on('data', function(data) {
         assert.equal(data.contents.toString(), output);
         cb();
@@ -19,11 +19,14 @@ it('should prepare text', function (cb) {
     }));
 });
 
-it('should prepare text with disabled rule "common/punctuation/exclamation"', function (cb) {
-    var input = '   Hello world!!   ',
-        output = 'Hello world!!';
+it('should prepare text with disabled rule "ru/punctuation/exclamation"', function (cb) {
+    const input = '   Hello world!!   ';
+    const output = 'Hello world!!';
 
-    var stream = typograf({lang: 'ru', disable: ['ru/punctuation/exclamation']});
+    const stream = typograf({
+        locale: ['ru', 'en-US'],
+        disableRule: ['ru/punctuation/exclamation']
+    });
     stream.on('data', function(data) {
         assert.equal(data.contents.toString(), output);
         cb();
@@ -35,10 +38,14 @@ it('should prepare text with disabled rule "common/punctuation/exclamation"', fu
 });
 
 it('should prepare text with enabled rule "ru/money/ruble"', function (cb) {
-    var input = '   1 руб.   ',
-        output = '1\u00A0₽';
+    const input = '   1 руб.   ';
+    const output = '1\u00A0₽';
 
-    var stream = typograf({lang: 'ru', enable: ['ru/money/ruble']});
+    const stream = typograf({
+        locale: 'ru',
+        enableRule: ['ru/money/ruble']
+    });
+
     stream.on('data', function(data) {
         assert.equal(data.contents.toString(), output);
         cb();
@@ -50,11 +57,11 @@ it('should prepare text with enabled rule "ru/money/ruble"', function (cb) {
 });
 
 it('should execute own rules', function (cb) {
-    var input = ' :-) ',
-        output = ':—)';
+    const input = ' :-) ';
+    const output = ':—)';
 
-    var stream = typograf({
-        lang: 'ru',
+    const stream = typograf({
+        locale: 'ru',
         rules: [
             {
                 name: 'common/other/typographicalEmoticon',
@@ -64,6 +71,7 @@ it('should execute own rules', function (cb) {
             }
         ]
     });
+
     stream.on('data', function(data) {
         assert.equal(data.contents.toString(), output);
         cb();
