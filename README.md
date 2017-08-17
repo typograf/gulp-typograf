@@ -35,6 +35,10 @@ gulp.task('typograf', function() {
     htmlEntity: { type: 'digit' }, // Type of HTML entities: 'digit' - &#160;, 'name' - &nbsp;, 'default' - UTF-8
     disableRule: ['ru/optalign/*'],
     enableRule: ['ru/money/ruble'],
+    safeTags: [
+        ['<\\?php', '\\?>'],
+        ['<no-typography>', '</no-typography>']
+    ],
     rules: [ // Own rules
         {
             name: 'common/other/typographicalEmoticon',

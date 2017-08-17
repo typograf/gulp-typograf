@@ -21,6 +21,11 @@ module.exports = function(opts) {
     addRules(opts.rules);
 
     const typograf = new Typograf(opts);
+    if (Array.isArray(opts.safeTags)) {
+        opts.safeTags.forEach(function(tag) {
+            typograf.addSafeTag.apply(typograf, tag);
+        });
+    }
 
     return through.obj(function(file, enc, cb) {
         if (file.isNull()) {

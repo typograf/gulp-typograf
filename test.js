@@ -82,3 +82,23 @@ it('should execute own rules', function (cb) {
     }));
 });
 
+it('should add safe tags', function (cb) {
+    const input = '<notypography>   "Hello"   </notypography>';
+    const output = input;
+
+    const stream = typograf({
+        locale: 'ru',
+        safeTags: [
+            ['<notypography>', '</notypography>']
+        ]
+    });
+
+    stream.on('data', function(data) {
+        assert.equal(data.contents.toString(), output);
+        cb();
+    });
+
+    stream.write(new gutil.File({
+        contents: new Buffer(input)
+    }));
+});
