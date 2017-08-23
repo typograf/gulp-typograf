@@ -32,14 +32,16 @@ gulp.task('typograf', function() {
 ```js
 .pipe(typograf({
     locale: ['ru', 'en-US'],
-    htmlEntity: { type: 'digit' }, // Type of HTML entities: 'digit' - &#160;, 'name' - &nbsp;, 'default' - UTF-8
+    // Type of HTML entities: 'digit' - &#160;, 'name' - &nbsp;, 'default' - UTF-8
+    htmlEntity: { type: 'digit' },
     disableRule: ['ru/optalign/*'],
     enableRule: ['ru/money/ruble'],
     safeTags: [
         ['<\\?php', '\\?>'],
         ['<no-typography>', '</no-typography>']
     ],
-    rules: [ // Own rules
+    // Own rules
+    rules: [
         {
             name: 'common/other/typographicalEmoticon',
             handler: function(text, settings) {
