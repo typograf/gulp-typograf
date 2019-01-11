@@ -15,7 +15,7 @@ it('should prepare text', function (cb) {
     });
 
     stream.write(new gutil.File({
-        contents: new Buffer(input)
+        contents: Buffer.from(input)
     }));
 });
 
@@ -33,7 +33,7 @@ it('should prepare text with disabled rule "ru/punctuation/exclamation"', functi
     });
 
     stream.write(new gutil.File({
-        contents: new Buffer(input)
+        contents: Buffer.from(input)
     }));
 });
 
@@ -52,7 +52,7 @@ it('should prepare text with enabled rule "ru/money/ruble"', function (cb) {
     });
 
     stream.write(new gutil.File({
-        contents: new Buffer(input)
+        contents: Buffer.from(input)
     }));
 });
 
@@ -78,7 +78,7 @@ it('should execute own rules', function (cb) {
     });
 
     stream.write(new gutil.File({
-        contents: new Buffer(input)
+        contents: Buffer.from(input)
     }));
 });
 
@@ -99,6 +99,6 @@ it('should add safe tags', function (cb) {
     });
 
     stream.write(new gutil.File({
-        contents: new Buffer(input)
+        contents: Buffer.from(input)
     }));
 });

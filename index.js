@@ -38,7 +38,7 @@ module.exports = function(opts) {
             return cb();
         }
 
-        file.contents = new Buffer(typograf.execute(file.contents.toString()));
+        file.contents = Buffer.from(typograf.execute(file.contents.toString()));
 
         this.push(file);
         cb();
