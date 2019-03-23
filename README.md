@@ -3,8 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/gulp-typograf.svg)](https://www.npmjs.com/package/gulp-typograf)
 [![NPM downloads](https://img.shields.io/npm/dm/gulp-typograf.svg)](https://www.npmjs.com/package/gulp-typograf)
 [![Build Status](https://img.shields.io/travis/typograf/gulp-typograf.svg)](https://travis-ci.org/typograf/gulp-typograf)
-[![Dependency Status](https://img.shields.io/david/typograf/gulp-typograf.svg)](https://david-dm.org/typograf/gulp-typograf) [![devDependency Status](https://img.shields.io/david/dev/typograf/gulp-typograf.svg)](https://david-dm.org/typograf/gulp-typograf#info=devDependencies)
-
+[![Dependency Status](https://img.shields.io/david/typograf/gulp-typograf.svg)](https://david-dm.org/typograf/gulp-typograf) 
 
 Prepare texts with [Typograf](https://github.com/typograf/typograf) using Gulp.
 
