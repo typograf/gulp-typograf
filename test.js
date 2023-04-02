@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const gutil = require('gulp-util');
+const Vinyl = require('vinyl');
 const typograf = require('./');
 
 it('should prepare text', function (cb) {
@@ -14,7 +14,7 @@ it('should prepare text', function (cb) {
         cb();
     });
 
-    stream.write(new gutil.File({
+    stream.write(new Vinyl({
         contents: Buffer.from(input)
     }));
 });
@@ -32,7 +32,7 @@ it('should prepare text with disabled rule "ru/punctuation/exclamation"', functi
         cb();
     });
 
-    stream.write(new gutil.File({
+    stream.write(new Vinyl({
         contents: Buffer.from(input)
     }));
 });
@@ -51,7 +51,7 @@ it('should prepare text with enabled rule "ru/money/ruble"', function (cb) {
         cb();
     });
 
-    stream.write(new gutil.File({
+    stream.write(new Vinyl({
         contents: Buffer.from(input)
     }));
 });
@@ -77,7 +77,7 @@ it('should execute own rules', function (cb) {
         cb();
     });
 
-    stream.write(new gutil.File({
+    stream.write(new Vinyl({
         contents: Buffer.from(input)
     }));
 });
@@ -98,7 +98,7 @@ it('should add safe tags', function (cb) {
         cb();
     });
 
-    stream.write(new gutil.File({
+    stream.write(new Vinyl({
         contents: Buffer.from(input)
     }));
 });

@@ -2,7 +2,7 @@
 
 const Typograf = require('typograf');
 const through = require('through2');
-const gutil = require('gulp-util');
+const PluginError = require('plugin-error');
 const names = [];
 
 function addRules(rules) {
@@ -34,7 +34,7 @@ module.exports = function(opts) {
         }
 
         if (file.isStream()) {
-            this.emit('error', new gutil.PluginError('gulp-typograf', 'Streaming not supported'));
+            this.emit('error', new PluginError('gulp-typograf', 'Streaming not supported'));
             return cb();
         }
 
