@@ -13,8 +13,6 @@ npm install gulp-typograf --save-dev
 
 ## Usage
 ```js
-'use strict';
-
 const typograf = require('gulp-typograf');
 
 gulp.task('typograf', function() {
